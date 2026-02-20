@@ -5,7 +5,7 @@
 %global cargo_install_lib 0
 
 Name:           rust-ptools
-Version:        0.2.2
+Version:        0.2.10
 Release:        %autorelease
 Summary:        Utilities for inspecting Linux processes
 
@@ -23,7 +23,6 @@ Utilities for inspecting Linux processes.}
 %package     -n %{crate}
 Summary:        %{summary}
 # Apache-2.0
-# Apache-2.0 OR MIT
 # MIT
 # MIT OR Apache-2.0
 License:        Apache-2.0 AND MIT
@@ -34,11 +33,30 @@ License:        Apache-2.0 AND MIT
 %files       -n %{crate}
 %license LICENSE
 %license LICENSE.dependencies
+%doc CONTRIBUTING.md
 %doc README.md
 %{_bindir}/pargs
+%{_bindir}/pauxv
+%{_bindir}/pcred
 %{_bindir}/penv
 %{_bindir}/pfiles
+%{_bindir}/pflags
+%{_bindir}/prun
+%{_bindir}/psig
+%{_bindir}/pstop
 %{_bindir}/ptree
+%{_bindir}/pwait
+%{_mandir}/man1/pargs.1*
+%{_mandir}/man1/pauxv.1*
+%{_mandir}/man1/pcred.1*
+%{_mandir}/man1/penv.1*
+%{_mandir}/man1/pfiles.1*
+%{_mandir}/man1/pflags.1*
+%{_mandir}/man1/prun.1*
+%{_mandir}/man1/psig.1*
+%{_mandir}/man1/pstop.1*
+%{_mandir}/man1/ptree.1*
+%{_mandir}/man1/pwait.1*
 
 %prep
 %autosetup -n %{crate}-%{version} -p1
@@ -54,6 +72,7 @@ License:        Apache-2.0 AND MIT
 
 %install
 %cargo_install
+install -Dpm 644 -t %{buildroot}%{_mandir}/man1 target/man/*.1
 
 %if %{with check}
 %check
