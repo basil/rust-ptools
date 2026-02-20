@@ -27,6 +27,7 @@ Summary:        %{summary}
 # MIT OR Apache-2.0
 License:        Apache-2.0 AND MIT
 # LICENSE.dependencies contains a full license breakdown
+Conflicts:      python3-linux-procfs
 
 %description -n %{crate} %{_description}
 
