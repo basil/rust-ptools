@@ -5,7 +5,7 @@
 %global cargo_install_lib 0
 
 Name:           rust-ptools
-Version:        0.2.11
+Version:        0.2.13
 Release:        %autorelease
 Summary:        Utilities for inspecting Linux processes
 
@@ -27,7 +27,9 @@ Summary:        %{summary}
 # MIT OR Apache-2.0
 License:        Apache-2.0 AND MIT
 # LICENSE.dependencies contains a full license breakdown
-Conflicts:      python3-linux-procfs
+Recommends:     glibc-common
+Recommends:     procps-ng
+Recommends:     python3-linux-procfs
 
 %description -n %{crate} %{_description}
 
@@ -41,7 +43,6 @@ Conflicts:      python3-linux-procfs
 %{_bindir}/pcred
 %{_bindir}/penv
 %{_bindir}/pfiles
-%{_bindir}/pflags
 %{_bindir}/prun
 %{_bindir}/psig
 %{_bindir}/pstop
@@ -52,7 +53,6 @@ Conflicts:      python3-linux-procfs
 %{_mandir}/man1/pcred.1*
 %{_mandir}/man1/penv.1*
 %{_mandir}/man1/pfiles.1*
-%{_mandir}/man1/pflags.1*
 %{_mandir}/man1/prun.1*
 %{_mandir}/man1/psig.1*
 %{_mandir}/man1/pstop.1*
