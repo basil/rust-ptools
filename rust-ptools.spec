@@ -27,6 +27,10 @@ Summary:        %{summary}
 # MIT OR Apache-2.0
 License:        Apache-2.0 AND MIT
 # LICENSE.dependencies contains a full license breakdown
+# Some Solaris/illumos ptools are already provided by other packages:
+# glibc-common: pldd(1)
+# procps-ng: pgrep(1), pkill(1), pmap(1), pwdx(1)
+# python3-linux-procfs: pflags(1)
 Recommends:     glibc-common
 Recommends:     procps-ng
 Recommends:     python3-linux-procfs
