@@ -13,6 +13,9 @@ License:        Apache-2.0
 URL:            https://github.com/basil/ptools
 Source:         %{crates_source}
 
+# https://fedoraproject.org/wiki/Changes/EncourageI686LeafRemoval
+ExcludeArch:    %{ix86}
+
 BuildRequires:  cargo-rpm-macros >= 24
 
 %global _description %{expand:
