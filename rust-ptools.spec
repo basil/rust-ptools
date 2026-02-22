@@ -5,7 +5,7 @@
 %global cargo_install_lib 0
 
 Name:           rust-ptools
-Version:        0.2.13
+Version:        0.2.14
 Release:        %autorelease
 Summary:        Utilities for inspecting Linux processes
 
@@ -13,10 +13,8 @@ License:        Apache-2.0
 URL:            https://github.com/basil/ptools
 Source:         %{crates_source}
 
-# https://fedoraproject.org/wiki/Changes/EncourageI686LeafRemoval
-ExcludeArch:    %{ix86}
-
 BuildRequires:  cargo-rpm-macros >= 24
+BuildRequires:  pkgconfig(libsystemd)
 
 %global _description %{expand:
 Utilities for inspecting Linux processes.}
@@ -34,6 +32,7 @@ License:        Apache-2.0 AND MIT
 # glibc-common: pldd(1)
 # procps-ng: pgrep(1), pkill(1), pmap(1), pwdx(1)
 # python3-linux-procfs: pflags(1)
+Requires:       systemd-libs
 Recommends:     glibc-common
 Recommends:     procps-ng
 Recommends:     python3-linux-procfs
@@ -50,6 +49,7 @@ Recommends:     python3-linux-procfs
 %{_bindir}/pcred
 %{_bindir}/penv
 %{_bindir}/pfiles
+%{_bindir}/plgrp
 %{_bindir}/prun
 %{_bindir}/psig
 %{_bindir}/pstop
@@ -60,6 +60,7 @@ Recommends:     python3-linux-procfs
 %{_mandir}/man1/pcred.1*
 %{_mandir}/man1/penv.1*
 %{_mandir}/man1/pfiles.1*
+%{_mandir}/man1/plgrp.1*
 %{_mandir}/man1/prun.1*
 %{_mandir}/man1/psig.1*
 %{_mandir}/man1/pstop.1*
